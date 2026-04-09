@@ -1,0 +1,248 @@
+.CardsRoot{
+    flex: 1;
+    padding: 0px 350px;
+}
+
+.CardsRoot-Section{
+
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.CardsRoot-Section:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.CardsRoot-Section p{
+    font-size: 20px;
+}
+
+.CardsRoot-Section-Stats{
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.025);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+.ManageCards{
+    flex: 1;
+    padding: 0px 350px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 200px;
+}
+
+.Manage-Cards-cardBrief {
+    background-color: rgba(255, 255, 255, 0.05);
+
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 50px;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    display: flex;
+
+}
+
+.Manage-Cards-cardBrief p {
+    max-height: 70px;
+    overflow: hidden;
+    white-space: pre-wrap;
+}
+
+.Manage-Cards-cardBrief:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.Manage-Cards-cardBrief img{
+    height: 20px;
+    margin-left: auto;
+    opacity: 0.5;
+}
+
+.Manage-Cards-cardBrief img:hover{
+    opacity: 1;
+}
+
+
+.Manage-Cards-cardFocus{
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.Manage-Cards-cardFocus-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.Manage-Cards-cardFocus-header p{
+    padding: 6px 15px;
+    cursor: pointer;
+}
+
+.Manage-Cards-cardFocus hr{
+    margin: 15px 0px;
+}
+
+.Manage-Cards-cardFocus-header-selected{
+    border: solid 1px white;
+    border-radius: 8px;
+    cursor: default;
+}
+
+.Manage-Cards-cardFocus button{
+
+    background-color: white;
+    color: black;
+    height: 30px;
+    width: 50px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'myFont';
+    font-size: 15px;
+    align-self: center;
+}
+
+.Manage-Cards-cardFocus button:hover{
+
+    background-color: rgb(53, 53, 53);
+    color: rgb(255, 255, 255);
+}
+
+
+.ManageCards-newButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 25px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.ManageCards-newButton:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ManageCards-newButton img{
+    height: 10px;
+}
+
+.ManageCards-mainCardsSection{
+    display: flex;
+    gap: 5px;
+}
+
+.ManageCards-mainCardsSection-Cards{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ManageCards-mainCardsSection-backButton{
+    width: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 10px;
+}
+
+.ManageCards-mainCardsSection-backButton:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+.ReviseCards-main{
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 0px 350px;
+
+}
+
+.ReviseCards-topBar{
+
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 25px;
+    border-radius: 8px;
+
+}
+
+.ReviseCards-topBar:hover{
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+
+.ReviseCards-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 350px;
+    border-radius: 10px;
+    padding: 20px 0px;
+    font-size: 20px;
+    font-family: 'myFont';
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.ReviseCards-card-inner {
+
+    margin-top: 30px;
+
+    width: fit-content;
+    max-width: 80%;
+    text-align: left;
+}
+
+.ReviseCards-main .ProseMirror{
+
+    outline: solid 1px rgb(65, 65, 65);
+    min-height: 150px;
+
+}

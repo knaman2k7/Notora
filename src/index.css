@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(27, 27, 27);
+
+}
+
+@font-face {
+    font-family: 'myFont';
+    src: url("./assets/Calibre-Regular.otf") format('opentype');
+}
+
+h1, h2,  p{
+    font-family: 'myFont';
+    color: white;
+}

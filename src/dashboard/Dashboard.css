@@ -1,0 +1,48 @@
+.FileBrowser-mainPage-wrapper h2{
+
+    margin-left: 100px;
+    margin-top: 30px;
+
+}
+
+.Dashboard-mainPage{
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header-navbar {
+    height: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(27, 27, 27, 1);
+}
+
+.header-navbar h1{
+
+    flex-grow: 25;
+
+    color: white;
+    font-size: 30px;
+}
+
+.header-navbar p{
+
+    flex-grow: 1;
+
+    color: white;
+    font-size: 18px;
+    
+}
+
+.header-navbar p{
+    cursor: pointer;
+}

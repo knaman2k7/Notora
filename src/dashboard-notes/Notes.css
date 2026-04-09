@@ -1,0 +1,56 @@
+.NotesEditor-wrapper{
+
+    flex: 1;
+    padding: 30px 350px;
+
+}
+
+.ProseMirror {
+
+    padding: 30px;
+    border-radius: 30px;
+    outline: none;
+    margin-bottom: 30px;
+
+}
+
+.ProseMirror img{
+    border-radius: 20px;
+    min-width: 30%;
+    max-width: 40%;
+    margin-left: 60px;
+}
+
+.ProseMirror-focused {
+    outline: solid 1px rgb(65, 65, 65);
+}
+
+.ProseMirror p{
+
+    font-size: 20px;
+    margin-left: 20px;
+
+}
+
+.ProseMirror h2{
+    margin-left: 10px;
+}
+
+.ProseMirror h3{
+    color: white;
+    font-family: 'myFont';
+    margin-left: 15px;
+    font-size: 21px;
+}
+
+.ProseMirror ul li::marker {
+    color: white;
+}
+
+.ProseMirror ol li::marker {
+    color: white;
+}
+
+.ProseMirror ol, ul{
+    padding-left: 60px;
+}

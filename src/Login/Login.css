@@ -1,0 +1,94 @@
+.login-page{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.login-page-right{
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-inputBox {
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    margin-left: 0px;
+    margin-bottom: 50px;
+    border: solid 1px rgb(117, 117, 117);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.login-page-right input{
+    border: none;
+    border-left: solid 1px rgb(117, 117, 117);
+    padding: 10px;
+    padding-right: 40px;
+    outline: none;
+    background-color: rgb(27, 27, 27);
+    color: white
+}
+
+.login-inputBox img {
+    height: 30px;
+
+    margin-left: 10px;
+    margin-right: 7px;
+    padding: 7px;
+}
+
+.login-input-frame{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login-input-frame p{
+
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.login-page-right button{
+
+    background-color: rgba(0,0,0,0);
+    border: solid 0.2px white;
+    border-radius: 10px;
+    outline: none;
+    overflow: hidden;
+
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+
+    color: white;
+
+}
+
+.login-page-right button:hover{
+
+    background-color: rgba(48, 48, 48, 0.884);
+    border-color: rgb(0,0,0,0);
+
+}
+
+.login-page-right h1{
+
+    color: white;
+    margin-bottom: 60px;
+    font-size: 50px;
+
+
+}

@@ -1,0 +1,89 @@
+.FileBrowser-wrapper {
+    flex: 1;
+    padding: 0px 350px;
+}
+
+.FileBrowser-header {
+    margin-bottom: 20px;
+}
+
+.FileBrowser-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.FileBrowser-path {
+    font-size: 17px;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.03em;
+}
+
+.FileBrowser-mainPage {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.FileBrowser-filebar {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.FileBrowser-filebar:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.FileBrowser-filebar p {
+    font-size: 15px;
+    color: white;
+}
+
+.FileBrowser-filebar img {
+    height: 16px;
+    margin-right: 14px;
+    opacity: 0.7;
+}
+
+
+.FileBrowser-newButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 8px 10px;
+}
+
+.FileBrowser-newButton img{
+    height: 10px;
+}
+
+.FileBrowser-newButton input{
+    
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.FileBrowser-PathLink {
+    color: gray;
+}
+
+.FileBrowser-PathLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
