@@ -4,23 +4,25 @@ import pg from "pg";
 import bcrypt from "bcrypt";
 import jsonwebstoken from "jsonwebtoken";
 import multer from "multer";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "Notora",
-    password: "Naman2005.",
-    port: 5432
-})
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false }
+});
 
 db.connect();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.join(__dirname, "../dist")));
 
 function authenticate(req, res, next){
 
@@ -32,7 +34,7 @@ function authenticate(req, res, next){
 
     try{
 
-        const decoded = jsonwebstoken.verify(token, "mySecretKey");
+        const decoded = jsonwebstoken.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
         next();
 
@@ -62,17 +64,15 @@ app.post('/login', async (req, res) => {
         const result = await db.query('SELECT id, password FROM users WHERE username = $1', [username]);
         const user = result.rows[0];
 
-        if (!user){
-            res.status(401).json({ error: "Invalid Credentials"});
-        }
-
+        if (!user) return res.status(401).json({ error: "Invalid Credentials" });
         const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) return res.status(401).json({ error: "Invalid Credentials" });
 
         if (!validPassword){
             res.status(401).json({ error: "Invalid Credentials"});
         }
 
-        const token = jsonwebstoken.sign({id: user.id}, "mySecretKey", {expiresIn: '1d'});
+        const token = jsonwebstoken.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: '1d'});
 
         res.json({token});
 
@@ -291,7 +291,7 @@ app.post('/uploadImage', authenticate, upload.single('image'), async (req, res) 
     );
 
     const id = result.rows[0].id;
-    res.json({ url: `http://localhost:3000/getImage/${id}` });
+    res.json({ url: `${process.env.API_URL}/getImage/${id}` });
 });
 
 app.get('/getImage/:id', async (req, res) => {
@@ -310,7 +310,9 @@ app.get('/getImage/:id', async (req, res) => {
 });
 
 
-
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist/index.html"));
+});
 
 
 

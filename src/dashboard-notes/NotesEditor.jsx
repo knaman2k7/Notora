@@ -10,6 +10,8 @@ import Superscript from '@tiptap/extension-superscript'
 import "./Notes.css"
 import { useEffect, useState } from 'react';
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function NotesEditor({curFile}){
 
     const [notes, setNotes] = useState(null);
@@ -18,7 +20,7 @@ export default function NotesEditor({curFile}){
 
         async function saveNotes(){
 
-            const res = await fetch(`http://localhost:3000/notes/${curFile}`, {
+            const res = await fetch(`${API}/notes/${curFile}`, {
                 method:"POST",
                 headers: {
                     'Content-Type':'application/json',
@@ -78,7 +80,7 @@ export default function NotesEditor({curFile}){
                             const formData = new FormData();
                             formData.append('image', file);
 
-                            fetch('http://localhost:3000/uploadImage', {
+                            fetch('${API}/uploadImage', {
                                 method: 'POST',
                                 headers: {
                                     authorisation: localStorage.getItem('token')
@@ -109,6 +111,7 @@ export default function NotesEditor({curFile}){
     { pattern: /\\cap\s$/, symbol: "∩" },
     { pattern: /\\forall\s$/, symbol: "∀" },
     { pattern: /\\exists\s$/, symbol: "∃" },
+    { pattern: /\\nexists\s$/, symbol: "∄" },
     { pattern: /\\infty\s$/, symbol: "∞" },
     { pattern: /\\sum\s$/, symbol: "∑" },
     { pattern: /\\prod\s$/, symbol: "∏" },
@@ -168,7 +171,7 @@ export default function NotesEditor({curFile}){
 
         async function getNotes(){
 
-            const res = await fetch( `http://localhost:3000/notes/${Number(curFile)}`,{
+            const res = await fetch( `${API}/notes/${Number(curFile)}`,{
                 headers: {
                     'Content-Type' : 'application/json',
                     authorisation: localStorage.getItem('token')

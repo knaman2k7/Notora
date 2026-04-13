@@ -8,6 +8,8 @@ import key from "../assets/key.png"
 
 import InputBox from "./InputBox"
 
+const API = import.meta.env.VITE_API_URL;
+
 function Login() {
 
     const [username, setUsername] = useState(null);
@@ -29,7 +31,7 @@ function Login() {
 
         try {
 
-            const { token } = await fetch("http://localhost:3000/login", 
+            const { token } = await fetch(`${API}/login`, 
                 {
                     method: "POST",
                     headers: {'Content-Type': 'application/json'},

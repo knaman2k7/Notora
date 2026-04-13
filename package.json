@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
-  },
+    "preview": "vite preview",
+    "start": "node server/index.js"
+},
   "dependencies": {
     "@tiptap/extension-image": "^3.22.0",
     "@tiptap/extension-subscript": "^3.22.0",

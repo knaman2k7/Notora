@@ -5,6 +5,8 @@ import FileBar from "./FileBar";
 import FilePathLink from "./FilePathLink";
 import plusIcon from "../assets/plus-icon.png"
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function FileBrowser({revisionMethod, inFile, setInFile, setCurFile}){
 
     const [fileDirectoryMap, setFileDirectoryMap] = useState({});
@@ -54,7 +56,7 @@ export default function FileBrowser({revisionMethod, inFile, setInFile, setCurFi
         
         async function addFileNoteDB(){
 
-            const res = await fetch( `http://localhost:3000/newNotes/${Number(key)+1}`,{
+            const res = await fetch( `${API}/newNotes/${Number(key)+1}`,{
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json",
@@ -71,7 +73,7 @@ export default function FileBrowser({revisionMethod, inFile, setInFile, setCurFi
         
         async function addFileCardsDB(){
 
-            const res = await fetch( `http://localhost:3000/newCard/${Number(key)+1}/0`,{
+            const res = await fetch( `${API}/newCard/${Number(key)+1}/0`,{
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json",
@@ -113,7 +115,7 @@ export default function FileBrowser({revisionMethod, inFile, setInFile, setCurFi
 
         async function sendNewMaps(){
 
-            const res = await fetch( `http://localhost:3000/updateMaps/${revisionMethod}`, {
+            const res = await fetch( `${API}/updateMaps/${revisionMethod}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -152,7 +154,7 @@ export default function FileBrowser({revisionMethod, inFile, setInFile, setCurFi
         async function fetchData(){
 
             // fetch file system from backend
-            const resDr = await fetch(`http://localhost:3000/getMap/${revisionMethod}/directory`,{
+            const resDr = await fetch(`${API}/getMap/${revisionMethod}/directory`,{
                 method:"GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -163,7 +165,7 @@ export default function FileBrowser({revisionMethod, inFile, setInFile, setCurFi
             setFileDirectoryMap(resDr.data);
 
             // fetch file name map from backend
-            const resN = await fetch(`http://localhost:3000/getMap/${revisionMethod}/names`,{
+            const resN = await fetch(`${API}/getMap/${revisionMethod}/names`,{
                 method:"GET",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+const API = import.meta.env.VITE_API_URL;
 
 function ProtectedRoute({children}){
 
@@ -14,7 +14,7 @@ function ProtectedRoute({children}){
 
             async function authorise(){
 
-                const res = await fetch("http://localhost:3000/authenticate", {
+                const res = await fetch(`${API}/authenticate`, {
                     method : "GET",
                     headers: {
                         'Content-Type' : "application/json",
