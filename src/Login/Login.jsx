@@ -8,7 +8,7 @@ import key from "../assets/key.png"
 
 import InputBox from "./InputBox"
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL ?? "";
 
 function Login() {
 

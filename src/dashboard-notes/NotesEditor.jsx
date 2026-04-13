@@ -10,7 +10,7 @@ import Superscript from '@tiptap/extension-superscript'
 import "./Notes.css"
 import { useEffect, useState } from 'react';
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL ?? "";
 
 export default function NotesEditor({curFile}){
 

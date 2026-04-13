@@ -6,7 +6,7 @@ import CardFocus from "./CardFocus";
 
 import plusIcon from "../assets/plus-icon.png"
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL ?? "";
 
 export default function ManageCards({curFile, traverseBack}){
 

@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: notora
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: notora-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: API_URL
+        fromService:
+          type: web
+          name: notora
+          property: host
+
+databases:
+  - name: notora-db
+    plan: free

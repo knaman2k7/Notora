@@ -3,7 +3,7 @@ import StarterKit from '@tiptap/starter-kit';
 import { Extension } from '@tiptap/core';
 import { useState, useEffect } from 'react';
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL ?? "";
 
 export default function ReviseCards({curFile, traverseBack}){
 
