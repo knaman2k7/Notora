@@ -3,8 +3,6 @@ import StarterKit from '@tiptap/starter-kit';
 import { Extension } from '@tiptap/core';
 import { useState, useEffect } from 'react';
 
-const API = import.meta.env.VITE_API_URL ?? "";
-
 export default function ReviseCards({curFile, traverseBack}){
 
     const [cards, setCards] = useState(null);
@@ -74,7 +72,7 @@ export default function ReviseCards({curFile, traverseBack}){
 
         async function fetchCards(){
 
-            const res = await fetch(`${API}/getCardsQA/${curFile}`, {
+            const res = await fetch(`/getCardsQA/${curFile}`, {
                 method: "GET",
                 headers: {
                     'Content-Type' : "application/json",

@@ -6,8 +6,6 @@ import CardFocus from "./CardFocus";
 
 import plusIcon from "../assets/plus-icon.png"
 
-const API = import.meta.env.VITE_API_URL ?? "";
-
 export default function ManageCards({curFile, traverseBack}){
 
     const [cardsData, setCardsData] = useState(null);
@@ -20,7 +18,7 @@ export default function ManageCards({curFile, traverseBack}){
 
     async function saveCardDB() {
 
-        const res = await fetch(`${API}/saveCard/${curFile}/${cardInFocus}`,{
+        const res = await fetch(`/saveCard/${curFile}/${cardInFocus}`,{
             method: "PATCH",
             headers: {
                 'Content-Type': "application/json",
@@ -74,7 +72,7 @@ export default function ManageCards({curFile, traverseBack}){
             newCardId = Number(dataKeys[dataKeys.length - 1]) + 1;
         }
 
-        const res = await fetch(`${API}/newCard/${curFile}/${newCardId}`,{
+        const res = await fetch(`/newCard/${curFile}/${newCardId}`,{
             method: "POST",
             headers: {
                 'Content-Type':"application/json",
@@ -97,7 +95,7 @@ export default function ManageCards({curFile, traverseBack}){
 
     async function deleteCard(cardIndex) {
 
-        const res = await fetch(`${API}/deleteCard/${curFile}/${cardIndex}`,{
+        const res = await fetch(`/deleteCard/${curFile}/${cardIndex}`,{
             method:"DELETE",
             headers: {
                 'Content-Type':"application/json",
@@ -123,7 +121,7 @@ export default function ManageCards({curFile, traverseBack}){
 
         async function getCards(){
 
-            const res = await fetch(`${API}/getCardsQA/${curFile}`,{
+            const res = await fetch(`/getCardsQA/${curFile}`,{
                 method: "GET",
                 headers: {
                     'Content-Type':"application/json",

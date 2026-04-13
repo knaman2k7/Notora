@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const API = import.meta.env.VITE_API_URL ?? "";
-
 function ProtectedRoute({children}){
 
     const [authorised, setAuthorised] = useState(false);
@@ -14,14 +12,14 @@ function ProtectedRoute({children}){
 
             async function authorise(){
 
-                const res = await fetch(`${API}/authenticate`, {
+                const res = await fetch(`/authenticate`, {
                     method : "GET",
                     headers: {
                         'Content-Type' : "application/json",
                         authorisation: localStorage.getItem('token')}
                 })
 
-                const data = await res.json()
+                await res.json()
 
                 if (res.ok){
                     setLoading(false);
