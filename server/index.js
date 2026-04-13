@@ -291,7 +291,7 @@ app.post('/uploadImage', authenticate, upload.single('image'), async (req, res) 
     );
 
     const id = result.rows[0].id;
-    res.json({ url: `${process.env.API_URL}/getImage/${id}` });
+    res.json({ url: `/getImage/${id}` });
 });
 
 app.get('/getImage/:id', async (req, res) => {
