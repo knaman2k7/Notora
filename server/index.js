@@ -15,8 +15,6 @@ const db = new pg.Pool({
     ssl: { rejectUnauthorized: false }
 });
 
-db.connect();
-
 // Middleware
 app.use(cors());
 app.use(express.json());

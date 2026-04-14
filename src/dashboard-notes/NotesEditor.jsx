@@ -18,16 +18,20 @@ export default function NotesEditor({curFile}){
 
         async function saveNotes(){
 
-            const res = await fetch(`/notes/${curFile}`, {
-                method:"POST",
-                headers: {
-                    'Content-Type':'application/json',
-                    authorisation : localStorage.getItem('token')
-                },
-                body: JSON.stringify( { newNotes: newNotes } )
-            })
+            try {
+                const res = await fetch(`/notes/${curFile}`, {
+                    method:"POST",
+                    headers: {
+                        'Content-Type':'application/json',
+                        authorisation : localStorage.getItem('token')
+                    },
+                    body: JSON.stringify( { newNotes: newNotes } )
+                })
 
-            if(res.status != 200){
+                if(res.status != 200){
+                    alert("File cannot be saved right now. Check Connection")
+                }
+            } catch {
                 alert("File cannot be saved right now. Check Connection")
             }
 
