@@ -8,7 +8,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 const db = new pg.Pool({
     connectionString: process.env.DATABASE_URL,
@@ -314,6 +314,6 @@ app.get("/{*splat}", (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
