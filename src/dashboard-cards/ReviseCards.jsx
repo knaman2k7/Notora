@@ -32,7 +32,7 @@ export default function ReviseCards({curFile, traverseBack}){
         const handleKeyDown = (e) => {
 
             const isMac = navigator.platform.toUpperCase().includes('MAC');
-            const modKey = isMac ? e.metaKey : e.ctrlKey;
+            const modKey = isMac ? e.altKey : e.ctrlKey;
 
             // question traversal
             if (modKey && e.key === "ArrowRight"){
