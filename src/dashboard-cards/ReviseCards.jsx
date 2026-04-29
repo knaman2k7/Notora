@@ -31,13 +31,16 @@ export default function ReviseCards({curFile, traverseBack}){
 
         const handleKeyDown = (e) => {
 
+            const isMac = navigator.platform.toUpperCase().includes('MAC');
+            const modKey = isMac ? e.metaKey : e.ctrlKey;
+
             // question traversal
-            if (e.ctrlKey && e.key === "ArrowRight"){
+            if (modKey && e.key === "ArrowRight"){
                 lightBar("right");
                 setCurCard( prev => prev+1 == cardsLength ? prev : prev + 1 );
                 setCardFace("question");
             }
-            if (e.ctrlKey && e.key === "ArrowLeft"){
+            if (modKey && e.key === "ArrowLeft"){
                 console.log(curCard)
                 lightBar("left");
                 setCurCard( prev => prev == 0 ? prev : prev - 1 );
@@ -45,19 +48,19 @@ export default function ReviseCards({curFile, traverseBack}){
             }
 
             // question right or wrong
-            if (e.ctrlKey && e.key === ","){
+            if (modKey && e.key === ","){
                 lightBar("right", "red");
                 setCurCard( prev => prev+1 == cardsLength ? prev : prev + 1 );
                 setCardFace("question");
             }
-            if (e.ctrlKey && e.key === ".") {
+            if (modKey && e.key === ".") {
                 lightBar("right", "green");
                 setCurCard( prev => prev+1 == cardsLength ? prev : prev + 1 );
                 setCardFace("question");
             }
 
             // flip the card
-            if (e.ctrlKey && e.key == "ArrowDown"){
+            if (modKey && e.key == "ArrowDown"){
                 lightBar();
                 setCardFace( prev => prev === "question" ? "answer" : "question" );
             }
