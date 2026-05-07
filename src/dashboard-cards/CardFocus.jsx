@@ -2,7 +2,11 @@ import { useState, useEffect } from "react"
 
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import { Extension } from '@tiptap/core';
+import { Extension, InputRule } from '@tiptap/core';
+import Image from '@tiptap/extension-image';
+import Subscript from '@tiptap/extension-subscript';
+import Superscript from '@tiptap/extension-superscript';
+import { Plugin } from '@tiptap/pm/state';
 
 export default function CardFocus({question, answer, setQuestion, setAnswer, saveCard}){
 

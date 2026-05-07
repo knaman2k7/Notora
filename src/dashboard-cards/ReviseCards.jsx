@@ -1,6 +1,10 @@
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import { Extension } from '@tiptap/core';
+import { Extension, InputRule } from '@tiptap/core';
+import Image from '@tiptap/extension-image';
+import Subscript from '@tiptap/extension-subscript';
+import Superscript from '@tiptap/extension-superscript';
+import { Plugin } from '@tiptap/pm/state';
 import { useState, useEffect } from 'react';
 
 export default function ReviseCards({curFile, traverseBack}){
