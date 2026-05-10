@@ -204,6 +204,8 @@
 
 }
 
+
+
 .ReviseCards-topBar{
 
     background-color: rgba(255, 255, 255, 0.05);
@@ -238,6 +240,15 @@
     width: fit-content;
     max-width: 80%;
     text-align: left;
+}
+
+.ReviseCards-card-inner img{
+
+    border-radius: 5px;
+    max-width: 70%;
+    display: block;
+    margin: 0 auto;
+
 }
 
 .ReviseCards-main .ProseMirror{
