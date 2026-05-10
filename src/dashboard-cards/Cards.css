@@ -220,7 +220,7 @@
 
 .ReviseCards-card {
     background-color: rgba(255, 255, 255, 0.05);
-    height: 350px;
+    min-height: 350px;
     border-radius: 10px;
     padding: 20px 0px;
     font-size: 20px;
