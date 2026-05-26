@@ -7,7 +7,12 @@ import App from './App.jsx'
 const originalFetch = window.fetch;
 
 window.fetch = async (...args) => {
-  const response = await originalFetch(...args);
+  const response = await originalFetch({...args,
+    headers: {
+      'Content-Type' : "application/json",
+      authorisation : localStorage.getItem('token')
+    }
+  });
   if (response.status === 403) {
     localStorage.removeItem("token");
     window.location.href = "/dashboard";

@@ -45,6 +45,8 @@ function Login() {
                 throw new Error("invalid credientials")
             }
 
+            console.log("token recieved: " + token);
+
             localStorage.setItem('token', token);
 
             console.log( "my token", localStorage.getItem('token') );

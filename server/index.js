@@ -8,11 +8,14 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 
 const db = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false }
+    user: 'postgres',
+    password: 'Naman2005.',
+    host: 'localhost',
+    port: 5432,
+    database: 'notora_local',
 });
 
 // Middleware
@@ -21,6 +24,8 @@ app.use(express.json());
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "../dist")));
+
+const secretKey = "mySecretKey";
 
 function authenticate(req, res, next){
 
@@ -32,9 +37,13 @@ function authenticate(req, res, next){
 
     try{
 
-        const decoded = jsonwebstoken.verify(token, process.env.JWT_SECRET);
+        console.log("auth token: " + token);
+
+        const decoded = jsonwebstoken.verify(token, secretKey);
         req.user = decoded;
         next();
+
+
 
     }
     catch (err){
@@ -54,27 +63,33 @@ app.get("/authenticate", authenticate, (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    
+
     const { username, password} = req.body;
+
+    console.log("login recieved, username: " + username + " password: " + password)
 
     try {
 
         const result = await db.query('SELECT id, password FROM users WHERE username = $1', [username]);
         const user = result.rows[0];
 
+        console.log(user);
+
         if (!user) return res.status(401).json({ error: "Invalid Credentials" });
         const validPassword = await bcrypt.compare(password, user.password);
+
+        console.log(validPassword)
         if (!validPassword) return res.status(401).json({ error: "Invalid Credentials" });
 
-        if (!validPassword){
-            res.status(401).json({ error: "Invalid Credentials"});
-        }
+        const token = jsonwebstoken.sign({id: user.id}, secretKey, {expiresIn: '1d'});
 
-        const token = jsonwebstoken.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: '1d'});
+        console.log(token)
 
         res.json({token});
 
     } catch(err){ 
+
+        console.log(err)
         res.status(500).json({error: 'server error'});
     }
 
